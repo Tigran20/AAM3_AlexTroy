@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alextroy.aam3_alextroy.model.NewsItem
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.news_list_item.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewsAdapter(val items: ArrayList<NewsItem>, val context: Context) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
@@ -26,7 +28,8 @@ class NewsAdapter(val items: ArrayList<NewsItem>, val context: Context) : Recycl
         holder.newsCategory.text = items[position].category.name
         holder.newsTitle.text = items[position].title
         holder.newsPreview.text = items[position].previewText
-        holder.newsDate.text = items[position].publishDate.toString()
+        holder.newsDate.text = dateAgo(items[position].publishDate)
+
         Glide.with(context).load(items[position].imageUrl).into(holder.newsImage)
 
         holder.cardView.setOnClickListener {
@@ -41,6 +44,7 @@ class NewsAdapter(val items: ArrayList<NewsItem>, val context: Context) : Recycl
         val newsDate = view.news_published_date!!
         val newsImage = view.news_image!!
         val cardView = view.card_view!!
+
     }
 
     interface OnItemClickListener {
@@ -49,5 +53,14 @@ class NewsAdapter(val items: ArrayList<NewsItem>, val context: Context) : Recycl
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.listener = listener
+    }
+
+    private fun dateAgo(date: Date): String {
+        val time = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        val format = SimpleDateFormat("HH", Locale.getDefault()).format(date).toInt()
+        val format2 = SimpleDateFormat("HH:mm a", Locale.getDefault()).format(date)
+
+        val temp = time - format
+        return temp.toString() + " hr. ago, " + format2
     }
 }
