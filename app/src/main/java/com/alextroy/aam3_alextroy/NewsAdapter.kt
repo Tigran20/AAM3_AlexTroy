@@ -59,7 +59,6 @@ class NewsAdapter(val items: ArrayList<NewsItem>, val context: Context) : Recycl
         val time = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         val format = SimpleDateFormat("HH", Locale.getDefault()).format(date).toInt()
         val format2 = SimpleDateFormat("HH:mm a", Locale.getDefault()).format(date)
-
         val temp = time - format
         return temp.toString() + " hr. ago, " + format2
     }
