@@ -1,6 +1,7 @@
 package com.alextroy.aam3_alextroy
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,5 +23,12 @@ class NewsListActivity : AppCompatActivity() {
 
         val adapter = NewsAdapter(news, this)
         rv.adapter = adapter
+
+        adapter.setOnItemClickListener(object : NewsAdapter.OnItemClickListener {
+            override fun onClick(view: View, data: NewsItem) {
+                val intent = AboutActivity.newIntent(this@NewsListActivity)
+                startActivity(intent)
+            }
+        })
     }
 }

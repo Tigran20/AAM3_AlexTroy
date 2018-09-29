@@ -25,29 +25,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="fds"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/news_preview_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fds" />
+            android:layout_marginBottom="8dp"
+            android:text="fds"
+            android:textColor="@android:color/black" />
 
         <TextView
-            android:textColor="@android:color/black"
-            android:textSize="12sp"
             android:id="@+id/news_published_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fds" />
+            android:text="fds"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:scaleType="center"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/news_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_gravity="center_vertical|right"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/instagram" />
+        android:layout_margin="16dp" />
 
 </androidx.cardview.widget.CardView>
