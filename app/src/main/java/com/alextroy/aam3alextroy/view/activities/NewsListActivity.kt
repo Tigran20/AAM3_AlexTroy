@@ -1,8 +1,9 @@
 package com.alextroy.aam3alextroy.view.activities
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alextroy.aam3alextroy.R
@@ -31,10 +32,13 @@ class NewsListActivity : AppCompatActivity() {
 
         val rv = findViewById<RecyclerView>(R.id.recycler_view)
         val adapter = NewsAdapter(news, this)
-//        val dec = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
-//
-//        rv.addItemDecoration(dec)
-        rv.layoutManager = LinearLayoutManager(this)
+
+        if (this.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            rv.layoutManager = LinearLayoutManager(this)
+        } else {
+            rv.layoutManager = GridLayoutManager(this, 2)
+        }
+
         rv.adapter = adapter
 
         adapter.addAll(presenter.getDataModel())
