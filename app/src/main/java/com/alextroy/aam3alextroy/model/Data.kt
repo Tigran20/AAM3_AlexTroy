@@ -1,0 +1,14 @@
+package com.alextroy.aam3alextroy.model
+
+import java.io.Serializable
+import java.util.*
+
+
+data class NewsItem(val title: String,
+                    val imageUrl: String,
+                    val category: Category,
+                    val publishDate: Date,
+                    val previewText: String,
+                    val fullText: String) : Serializable
+
+data class Category(val id: Int, val name: String) : Serializable

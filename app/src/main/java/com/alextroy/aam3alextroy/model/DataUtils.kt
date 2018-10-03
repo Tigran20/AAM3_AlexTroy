@@ -1,17 +1,34 @@
-package com.alextroy.aam3_alextroy.model
+package com.alextroy.aam3alextroy.model
 
+import com.alextroy.aam3alextroy.presenter.Contract
 import java.util.*
+import kotlin.collections.ArrayList
 
 
-class DataUtils {
+object DataUtils : Contract.Data {
+
+    private var news = ArrayList<NewsItem>()
+
+    override fun getDataList(): List<NewsItem> {
+        return news
+    }
+
+    override fun getModelItem(position: Int): NewsItem {
+        return news[position]
+    }
+
+    init {
+        generateNews()
+    }
 
     fun generateNews(): List<NewsItem> {
+        news = ArrayList()
+
         val darwinAwards = Category(1, "Darwin Awards")
         val criminal = Category(2, "Criminal")
         val animals = Category(3, "Animals")
         val music = Category(4, "Music")
 
-        val news = ArrayList<NewsItem>()
         news.add(NewsItem(
                 "Tourist filmed sitting on 5m-long crocodile",
                 "https://e3.365dm.com/18/09/736x414/skynews-crocodile-australia_4433218.jpg",

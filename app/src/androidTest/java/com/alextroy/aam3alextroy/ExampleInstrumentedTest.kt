@@ -1,4 +1,4 @@
-package com.alextroy.aam3_alextroy
+package com.alextroy.aam3alextroy
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

@@ -1,9 +1,10 @@
-package com.alextroy.aam3_alextroy
+package com.alextroy.aam3alextroy.view.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.alextroy.aam3alextroy.R
 
 class AboutActivity : AppCompatActivity() {
 
