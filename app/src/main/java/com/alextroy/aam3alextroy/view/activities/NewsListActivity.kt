@@ -2,6 +2,9 @@ package com.alextroy.aam3alextroy.view.activities
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,5 +45,22 @@ class NewsListActivity : AppCompatActivity() {
         rv.adapter = adapter
 
         adapter.addAll(presenter.getDataModel())
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.news_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.news_about -> {
+                AboutActivity.newIntent(this)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

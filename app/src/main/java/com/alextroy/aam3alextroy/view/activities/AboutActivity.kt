@@ -14,8 +14,9 @@ class AboutActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context): Intent {
-            return Intent(context, AboutActivity::class.java)
+        fun newIntent(context: Context) {
+            val intent = Intent(context, AboutActivity::class.java)
+            return context.startActivity(intent)
         }
     }
 }
