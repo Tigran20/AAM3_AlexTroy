@@ -10,6 +10,7 @@ import com.alextroy.aam3alextroy.R
 import com.alextroy.aam3alextroy.model.NewsItem
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.news_detail.*
+import org.ocpsoft.prettytime.PrettyTime
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -56,11 +57,8 @@ class NewsDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun dateAgo(date: Date): String {
-        val time = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-        val format = SimpleDateFormat("HH", Locale.getDefault()).format(date).toInt()
-        val format2 = SimpleDateFormat("HH:mm a", Locale.getDefault()).format(date)
-        val temp = time - format
-        return temp.toString() + " hr. ago, " + format2
+    private fun dateAgo(data: Date?): String {
+        val prettyTime = PrettyTime()
+        return prettyTime.format(data)
     }
 }

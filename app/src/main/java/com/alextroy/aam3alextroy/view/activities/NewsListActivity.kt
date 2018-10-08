@@ -25,6 +25,11 @@ class NewsListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.news_list)
 
+        if(supportActionBar != null)
+        {
+            supportActionBar!!.elevation = 0F
+        }
+
         val news = ArrayList<NewsItem>()
         news.addAll(DataUtils.generateNews())
         init(news)
